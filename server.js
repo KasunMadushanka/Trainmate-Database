@@ -28,6 +28,9 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.get('/', function (req, res) {
+  res.send('database connection')
+})
 
 app.post('/server.js', urlencodedParser, function(req, res) {
 
