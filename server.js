@@ -6,14 +6,10 @@ var sql = require('mssql');
 
 var signup=require('./signup');
 
-var routes = require('./routes');
-
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(bodyParser.json());
-
-app.use('/', routes);
 
 app.use(function (req, res, next) {
 
@@ -53,6 +49,25 @@ app.post('/server.js', urlencodedParser, function(req, res) {
           }else{
 
           }
+        }).catch(function(error) {
+
+        });
+    });
+
+})
+
+app.post('/signup.js', urlencodedParser, function(req, res) {
+
+    var first_name=req.body.first_name;
+    var last_name=req.body.last_name;
+    var email= req.body.email;
+    var password= req.body.password;
+
+    sql.connect(connection).then(function() {
+        console.log('opening connection');
+        new sql.Request().query("Insert into contributor values (first_name,last_name,email,password) values('"+first_name+"','"+last_name+"','"+email+"','"+password+"'").then(function(recordset) {
+            console.dir("success");
+
         }).catch(function(error) {
 
         });
