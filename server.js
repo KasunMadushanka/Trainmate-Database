@@ -56,7 +56,7 @@ app.post('/server.js', urlencodedParser, function(req, res) {
 
 })
 
-app.post('/signup.js', urlencodedParser, function(req, res) {
+app.post('/signup', urlencodedParser, function(req, res) {
 
     var first_name=req.body.first_name;
     var last_name=req.body.last_name;
