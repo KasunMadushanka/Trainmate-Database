@@ -5,7 +5,7 @@ var app = express();
 var sql = require('mssql');
 
 // Create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+//var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(bodyParser.json());
 
@@ -42,7 +42,7 @@ app.get('/signup.js', function (req, res) {
   res.send('database axconnection')
 })
 
-app.post('/serverd', urlencodedParser, function(req, res) {
+app.post('/server', function (request, response) {
 
     var email= req.body.email;
     var password= req.body.password;
@@ -64,7 +64,7 @@ app.post('/serverd', urlencodedParser, function(req, res) {
 
 })
 
-app.post('/signup', urlencodedParser, function(req, res) {
+app.post('/signup', function (request, response) {
 
     var first_name=req.body.first_name;
     var last_name=req.body.last_name;
