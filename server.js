@@ -4,6 +4,8 @@ var connection = require('./database').db_connection;
 var app = express();
 var sql = require('mssql');
 
+var signup=require('./signup');
+
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
