@@ -38,6 +38,10 @@ app.get('/', function (req, res) {
   res.send('database connection')
 })
 
+app.get('/signup.js', function (req, res) {
+  res.send('database axconnection')
+})
+
 app.post('/server.js', urlencodedParser, function(req, res) {
 
     var email= req.body.email;
@@ -60,7 +64,7 @@ app.post('/server.js', urlencodedParser, function(req, res) {
 
 })
 
-app.post('/s', urlencodedParser, function(req, res) {
+app.post('/signup.js', urlencodedParser, function(req, res) {
 
     var first_name=req.body.first_name;
     var last_name=req.body.last_name;
