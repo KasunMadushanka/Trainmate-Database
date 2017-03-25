@@ -38,10 +38,6 @@ app.get('/', function (req, res) {
     res.send('database connection')
 })
 
-app.get('/signup.js', function (req, res) {
-    res.send('database axconnection')
-})
-
 app.post('/server', urlencodedParser, function(req, res) {
 
     var email= req.body.email;
@@ -49,8 +45,8 @@ app.post('/server', urlencodedParser, function(req, res) {
 
     sql.connect(connection).then(function() {
         console.log('opening connection');
-        new sql.Request().query("Select * from customers WHERE NAME='"+email+"'").then(function(recordset) {
-            console.dir(recordset);
+        new sql.Request().query("Select con_id,first_name,last_name from contributor where email='"+email+"' and password='"+password+"'").then(function(recordset) {
+
             if(recordset.length>0){
                 res.send(recordset);
 
