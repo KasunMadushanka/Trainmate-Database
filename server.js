@@ -6,10 +6,14 @@ var sql = require('mssql');
 
 var signup=require('./signup');
 
+var routes = require('./routes');
+
 // Create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(bodyParser.json());
+
+app.use('/', routes);
 
 app.use(function (req, res, next) {
 
