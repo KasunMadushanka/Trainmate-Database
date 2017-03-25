@@ -5,7 +5,7 @@ var app = express();
 var sql = require('mssql');
 
 // Create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+var urlencodedParser = bodyParser.urlencoded({ extended: true })
 
 app.use(bodyParser.json());
 
