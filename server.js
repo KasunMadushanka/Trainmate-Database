@@ -42,7 +42,7 @@ app.get('/signup.js', function (req, res) {
   res.send('database axconnection')
 })
 
-app.post('/server', urlencodedParser, function(req, res) {
+app.post('/serverd', urlencodedParser, function(req, res) {
 
     var email= req.body.email;
     var password= req.body.password;
