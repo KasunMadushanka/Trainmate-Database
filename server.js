@@ -35,11 +35,11 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', function (req, res) {
-  res.send('database connection')
+    res.send('database connection')
 })
 
 app.get('/signup.js', function (req, res) {
-  res.send('database axconnection')
+    res.send('database axconnection')
 })
 
 app.post('/server', urlencodedParser, function(req, res) {
@@ -51,12 +51,12 @@ app.post('/server', urlencodedParser, function(req, res) {
         console.log('opening connection');
         new sql.Request().query("Select * from customers WHERE NAME='"+email+"'").then(function(recordset) {
             console.dir(recordset);
-          if(recordset.length>0){
-              res.send(recordset);
+            if(recordset.length>0){
+                res.send(recordset);
 
-          }else{
+            }else{
 
-          }
+            }
         }).catch(function(error) {
 
         });
@@ -73,14 +73,16 @@ app.post('/signup', urlencodedParser, function(req, res) {
 
     sql.connect(connection).then(function() {
         console.log('opening connection');
-        new sql.Request().query("Insert into contributor (first_name,last_name,email,password) values('"+first_name+"','"+last_name+"','"+email+"','"+password+"'").then(function(recordset) {
-            console.dir("success");
+        //new sql.Request().query("Insert into contributor (first_name,last_name,email,password) values('"+first_name+"','"+last_name+"','"+email+"','"+password+"'").then(function(recordset) {
+        new sql.Request().query("Select * from customers WHERE NAME='"+email+"'").then(function(recordset) {
+
+            res.send(recordset);
 
         }).catch(function(error) {
 
         });
     });
-     res.send("success");
+
 
 })
 
