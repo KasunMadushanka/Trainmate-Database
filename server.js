@@ -9,11 +9,11 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(bodyParser.json());
 
-var routes = require('./routes')
+//var routes = require('./routes')
 
 // ...
 
-app.use('/', routes)
+//app.use('/', routes)
 
 app.use(function (req, res, next) {
 
@@ -42,7 +42,7 @@ app.get('/signup.js', function (req, res) {
   res.send('database axconnection')
 })
 
-app.post('/server.js', urlencodedParser, function(req, res) {
+app.post('/server', urlencodedParser, function(req, res) {
 
     var email= req.body.email;
     var password= req.body.password;
