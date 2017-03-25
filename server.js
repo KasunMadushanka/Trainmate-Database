@@ -73,10 +73,9 @@ app.post('/signup', urlencodedParser, function(req, res) {
 
     sql.connect(connection).then(function() {
         console.log('opening connection');
-        //new sql.Request().query("Insert into contributor (first_name,last_name,email,password) values('"+first_name+"','"+last_name+"','"+email+"','"+password+"'").then(function(recordset) {
-        new sql.Request().query("Select * from customers WHERE NAME='"+email+"'").then(function(recordset) {
+        new sql.Request().query("Insert into contributor (first_name,last_name,email,password) values('"+first_name+"','"+last_name+"','"+email+"','"+password+"')").then(function(recordset) {
 
-            res.send(recordset);
+            res.send("success");
 
         }).catch(function(error) {
 
