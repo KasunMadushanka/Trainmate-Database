@@ -28,7 +28,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get('/', function (req, res) {
+app.get('/signup.js', function (req, res) {
   res.send('database connection')
 })
 
@@ -54,7 +54,7 @@ app.post('/server.js', urlencodedParser, function(req, res) {
 
 })
 
-app.post('/server.js/2', urlencodedParser, function(req, res) {
+app.post('/s', urlencodedParser, function(req, res) {
 
     var first_name=req.body.first_name;
     var last_name=req.body.last_name;
