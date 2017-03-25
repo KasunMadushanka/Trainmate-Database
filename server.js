@@ -9,6 +9,12 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(bodyParser.json());
 
+var routes = require('./routes')
+
+// ...
+
+app.use('/', routes)
+
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
@@ -54,7 +60,7 @@ app.post('/server.js', urlencodedParser, function(req, res) {
 
 })
 
-app.post('/server.js/2', urlencodedParser, function(req, res) {
+app.post('/s', urlencodedParser, function(req, res) {
 
     var first_name=req.body.first_name;
     var last_name=req.body.last_name;
@@ -78,24 +84,3 @@ app.post('/server.js/2', urlencodedParser, function(req, res) {
 app.listen(process.env.PORT||80, function() {
     console.log('Example app listening on port 3000!')
 })
-
-
-/*var config = {
-
-    user: 'kasun@trainmate',
-    password: 'Trainmate123',
-    server: 'trainmate.database.windows.net',
-    database: 'trainmate',
-    options: {
-        encrypt: true
-    }
-}
-
-sql.connect(config).then(function() {
-    console.log('opening connection');
-    new sql.Request().query('Select * from customers').then(function(recordset) {
-        console.dir(recordsent);
-    }).catch(function(error) {
-
-    });
-});*/
