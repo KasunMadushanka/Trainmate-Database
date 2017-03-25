@@ -5,7 +5,7 @@ var app = express();
 var sql = require('mssql');
 
 // Create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.urlencoded({ extended: true })
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(bodyParser.json());
 
@@ -80,7 +80,7 @@ app.post('/signup', urlencodedParser, function(req, res) {
 
         });
     });*/
-    console.dir("success");
+     res.send("success");
 
 })
 
