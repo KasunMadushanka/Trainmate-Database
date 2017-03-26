@@ -51,7 +51,7 @@ app.post('/login', urlencodedParser, function(req, res) {
                 res.send(recordset);
 
             }else{
-                res.send('invalid');
+                res.send(['invalid']);
 
             }
         }).catch(function(error) {
