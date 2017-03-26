@@ -38,15 +38,16 @@ app.get('/', function (req, res) {
     res.send('database connection')
 })
 
-app.post('/server', urlencodedParser, function(req, res) {
+app.post('/server.js', urlencodedParser, function(req, res) {
 
-    var email= req.body.email;
-    var password= req.body.password;
+    //var name= req.body.name;
+    //var email= req.body.email;
+    //var password= req.body.password;
 
     sql.connect(connection).then(function() {
         console.log('opening connection');
-        new sql.Request().query("Select con_id,first_name,last_name from contributor where email='"+email+"' and password='"+password+"'").then(function(recordset) {
-
+        //new sql.Request().query("Select con_id,first_name,last_name,email from contributor where email='"+email+"' and password='"+password+"'").then(function(recordset) {
+        new sql.Request().query("Select * from customers where name='chishan'").then(function(recordset) {
             if(recordset.length>0){
                 res.send(recordset);
 
