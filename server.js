@@ -45,7 +45,7 @@ app.post('/login', urlencodedParser, function(req, res) {
 
     sql.connect(connection).then(function() {
         console.log('opening connection');
-        new sql.Request().query("Select con_id,first_name,last_name,email from contributor where email='"+email+"' and password='"+password+"'").then(function(recordset) {
+        new sql.Request().query("Select con_id,first_name,last_name,email from contributor where first_name='"+email+"' and password='"+password+"'").then(function(recordset) {
 
             if(recordset.length>0){
                 res.send(recordset);
