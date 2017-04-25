@@ -45,7 +45,7 @@ app.post('/login', urlencodedParser, function(req, res) {
 
     sql.connect(connection).then(function() {
         console.log('opening connection');
-        new sql.Request().query("Select con_id,first_name,last_name,email from contributor where first_name='"+email+"' and password='"+password+"'").then(function(recordset) {
+        new sql.Request().query("Select con_id,first_name,last_name,email from customer where first_name='"+email+"' and password='"+password+"'").then(function(recordset) {
 
             if(recordset.length>0){
                 res.send(recordset);
@@ -70,7 +70,7 @@ app.post('/server.js', urlencodedParser, function(req, res) {
     sql.connect(connection).then(function() {
         console.log('opening connection');
 
-        new sql.Request().query("Select * from customers where name='chishan'").then(function(recordset) {
+        new sql.Request().query("Select * from customer where name='chishan'").then(function(recordset) {
             if(recordset.length>0){
                 res.send(recordset);
 
@@ -94,7 +94,7 @@ app.post('/register', urlencodedParser, function(req, res) {
 
     sql.connect(connection).then(function() {
         console.log('opening connection');
-        new sql.Request().query("Insert into contributor (first_name,last_name,email,password) values('"+first_name+"','"+last_name+"','"+email+"','"+password+"')").then(function(recordset) {
+        new sql.Request().query("Insert into customer (first_name,last_name,email,password) values('"+first_name+"','"+last_name+"','"+email+"','"+password+"')").then(function(recordset) {
 
             res.send("success");
 
@@ -109,5 +109,5 @@ app.post('/register', urlencodedParser, function(req, res) {
 
 
 app.listen(process.env.PORT||80, function() {
-    console.log('Example app listening on port 3000!')
+    console.log('Example app listening on port 80!')
 })
